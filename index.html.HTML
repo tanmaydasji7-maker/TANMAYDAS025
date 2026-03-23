@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> TANMAY DAS Calc</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background: ##2c3e50; }
+        .calc { border: 2px solid #333; padding: 20px; border-radius: 10px; background: white; box-shadow: 5px 5px 15px rgba(0,0,0,0.1); }
+        input { width: 100%; height: 40px; font-size: 20px; margin-bottom: 10px; text-align: right; padding: 5px; box-sizing: border-box; }
+        button { width: 45px; height: 45px; font-size: 18px; margin: 2px; cursor: pointer; border-radius: 5px; border: 1px solid #ccc; background: #eee; }
+        button:hover { background: #ddd; }
+        .equal { background: #4CAF50; color: white; width: 96px; }
+        .clear { background: #f44336; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="calc">
+    <input id="display" readonly placeholder="0">
+    <br>
+    <button onclick="press('7')">7</button><button onclick="press('8')">8</button><button onclick="press('9')">9</button><button onclick="press('/')">/</button><br>
+    <button onclick="press('4')">4</button><button onclick="press('5')">5</button><button onclick="press('6')">6</button><button onclick="press('*')">*</button><br>
+    <button onclick="press('1')">1</button><button onclick="press('2')">2</button><button onclick="press('3')">3</button><button onclick="press('-')">-</button><br>
+    <button onclick="press('0')">0</button><button onclick="press('.')">.</button><button class="clear" onclick="clr()">C</button><button onclick="press('+')">+</button><br>
+    <button class="equal" onclick="calculate()">=</button>
+</div>
+
+<script>
+    let screen = document.getElementById('display');
+    function press(val) { screen.value += val; }
+    function clr() { screen.value = ''; }
+    function calculate() {
+        try { screen.value = eval(screen.value); }
+        catch(e) { screen.value = 'Error'; }
+    }
+</script>
+
+</body>
+</html>
+
+
